@@ -1,0 +1,203 @@
+:root {
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --formm-bg: #f0f4f8;               
+  --inputt-bg: #ffffff;              
+  --white: #ffffff;
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
+}
+
+/* Base setup */
+
+.login-page-body,
+.login-page-html {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--light-gray);
+  color: var(--white);
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* Login Container */
+
+.login-page-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Left Panel */
+
+.login-page-left-panel-container {
+  flex: 1;
+  height: 200%;
+  background-color: var(--panel-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-page-right-panel-container {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-page-right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-signup-form-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--formm-bg);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--shadow-color);
+  text-align: center;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.login-page-signup-form-box h2 {
+  color: var(--prima-color);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.login-page-login-text {
+  text-align: center;
+  margin-bottom: 5rem;
+  font-size: 0.95rem;
+  color: black;
+}
+
+.login-page-login-text a {
+  color: var(--prima-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Input Fields */
+
+.login-page-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-page-form input {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  margin-bottom: 3rem;
+  padding-right: 0px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--inputt-bg);
+  color: var(--white);
+  font-size: 0.95rem;
+  height: 45px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.login-page-form input::placeholder {
+  color: var(--light-gray);
+}
+
+/* Input Icon */
+
+.login-page-input-wrapper {
+  position: relative;
+}
+
+.login-page-input-icon {
+  font-size: 1.2rem;
+  color: var(--prima-color);
+  position: absolute;
+  left: 16px;
+  top: 15%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Button */
+
+.login-page-signup-btn {
+  width: 60%;
+  padding: 0.8rem;
+  padding-right: 20px;
+  background-color: var(--prima-color);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.login-page-signup-btn:hover {
+  background-color: var(--hove-color);
+}
+
+/* Feedback messages */
+
+.login-page-error {
+  color: var(--error-red);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.login-page-success-message {
+  color: #4caf50;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Classic Login Options */
+
+.login-page-classic-login {
+  margin-top: 0.25rem;
+  text-align: center;
+  color: #fbba3f;
+}
+
+.login-page-icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 0.8rem;
+}
+
+.login-page-login-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.login-page-login-icon:hover {
+  transform: scale(1.1);
+}

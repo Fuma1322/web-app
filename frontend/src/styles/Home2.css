@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
+
+:root {
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --form-bg: #f0f4f8;               
+  --input-bg: #ffffff;              
+  --white: #ffffff;
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
+}
+
+.first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  overflow: hidden;
+  height: 400px;
+  flex-wrap: wrap;
+  padding: 2rem;
+  margin-top: 90px;
+}
+
+.cta-content {
+  flex: 1;
+  max-width: 50%;
+  padding: 2rem;
+  text-align: left;
+}
+
+.cta-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--prima-color);
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.media-container {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: var(--prima-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--prima-color);
+  color: var(--prima-color);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: scale(1.05);
+  background-color: var(--hover-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .first-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cta-content,
+  .media-container {
+    max-width: 100%;
+  }
+
+  .cta-content h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .cta-content p {
+    text-align: center;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
