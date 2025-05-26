@@ -40,12 +40,10 @@ const AdminInventory = () => {
     }
   };
 
-  // Mock update product
   const handleUpdateProduct = (id) => {
     setActionMessage(`Product with ID ${id} has been updated! ✏️`);
   };
 
-  // Toggle sidebar collapse
   const toggleSidebar = () => {
     setIsCollapsed((prev) => !prev);
   };
@@ -59,10 +57,8 @@ const AdminInventory = () => {
         isCollapsed ? "sidebar-collapsed" : ""
       }`}
     >
-      {/* Collapsible Sidebar */}
       <AdminSidebar collapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 
-      {/* Main Inventory Area */}
       <div className="inventory-content">
         <header className="admin-header">
           <motion.h1
@@ -86,7 +82,6 @@ const AdminInventory = () => {
           </div>
         )}
 
-        {/* Product Grid */}
         <div className="inventory-grid">
           {products.map((product) => (
             <div className="inventory-card" key={product._id}>

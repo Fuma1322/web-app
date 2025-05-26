@@ -24,23 +24,21 @@ const SignUp = () => {
     e.preventDefault();
     const { username, email, password, adminCode } = formData;
 
-    // Validation
     if (!username || !email || !password) {
       setError("All fields are required.");
       return;
     }
 
     if (isAdmin) {
-      if (adminCode !== "IWB-ADMIN-2024") {
+      if (adminCode !== "IWB-1234") {
         setError("Invalid admin code.");
         return;
       }
     }
 
     try {
-      // POST request to backend
       const response = await axios.post(
-        "http://localhost:5000/api/signup",
+        "http://localhost:5000/signup",
         {
           username,
           email,
@@ -109,8 +107,8 @@ const SignUp = () => {
                   type="text"
                   name="adminCode"
                   placeholder="Enter Admin Code"
-                  value={formData.adminCode}
                   onChange={handleChange}
+                  value={formData.adminCode}
                 />
               </div>
             )}

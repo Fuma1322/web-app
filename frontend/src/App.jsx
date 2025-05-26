@@ -15,6 +15,7 @@ import Repairs from "./pages/Repairs";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminInventory from "./pages/AdminInventory";
 import AdminSettings from "./pages/AdminSettings";
+import Users from "./components/Users";
 
 const App = () => {
   return (
@@ -23,7 +24,6 @@ const App = () => {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/ss" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/inventory" element={<Inventory />} />
@@ -31,8 +31,8 @@ const App = () => {
             <Route path="/income-statements" element={<IncomeStatement />} />
             <Route path="/sales-dashboard" element={<SalesDashboard />} />
             <Route path="/nav" element={<Navbar />} />
+            <Route path="/users" element={<Users />} />
             <Route path="/repairs" element={<Repairs />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/admin-inventory" element={<AdminInventory />} />
             <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/settings" element={<AdminSettings />} />

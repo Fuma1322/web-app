@@ -1,41 +1,40 @@
 import React from "react";
+import { BiUser } from "react-icons/bi";
 import {
   FaTachometerAlt,
   FaUsers,
   FaBoxOpen,
   FaFileAlt,
   FaCog,
-  FaBars,
 } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Ensure this is installed and used
+import { Link } from "react-router-dom";
 
-const AdminSidebar = ({ collapsed, toggleSidebar }) => {
+const AdminSidebar = () => {
   return (
-    <aside className={`admin-sidebar ${collapsed ? "collapsed" : ""}`}>
+    <aside className="admin-sidebar">
       <div className="sidebar-header">
-        <h2 className={collapsed ? "collapsed" : ""}>IWB</h2>
-        <FaBars className="toggle-icon" onClick={toggleSidebar} />
+        <h2>IWB</h2>
       </div>
       <nav className="sidebar-nav">
         <Link to="/dashboard" className="sidebar-link">
           <FaTachometerAlt className="icon" />
-          <span className={collapsed ? "collapsed" : ""}>Dashboard</span>
+          <span>Dashboard</span>
         </Link>
-        <Link to="/admin/users" className="sidebar-link">
-          <FaUsers className="icon" />
-          <span className={collapsed ? "collapsed" : ""}>Users</span>
+        <Link to="/users" className="sidebar-link">
+          <BiUser className="icon" />
+          <span>Users</span>
         </Link>
         <Link to="/admin-inventory" className="sidebar-link">
           <FaBoxOpen className="icon" />
-          <span className={collapsed ? "collapsed" : ""}>Products</span>
+          <span>Products</span>
         </Link>
         <Link to="/income-statements" className="sidebar-link">
           <FaFileAlt className="icon" />
-          <span className={collapsed ? "collapsed" : ""}>Reports</span>
+          <span>Income Statements</span>
         </Link>
         <Link to="/settings" className="sidebar-link">
           <FaCog className="icon" />
-          <span className={collapsed ? "collapsed" : ""}>Settings</span>
+          <span>Settings</span>
         </Link>
       </nav>
     </aside>

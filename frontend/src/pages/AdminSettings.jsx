@@ -4,13 +4,11 @@ import AdminSidebar from "../components/AdminSidebar";
 
 const AdminSettings = () => {
   const [backupEnabled, setBackupEnabled] = useState(false);
-  const [adminName, setAdminName] = useState("Kenneth");
-  const [email, setEmail] = useState("admin@iwbtech.com");
-  const [autoUpdate, setAutoUpdate] = useState(true);
+  const [adminName, setAdminName] = useState("John Doe");
+  const [email, setEmail] = useState("doe@example.com");
   const [systemStatus, setSystemStatus] = useState("Running smoothly");
 
   const toggleBackup = () => setBackupEnabled(!backupEnabled);
-  const toggleUpdate = () => setAutoUpdate(!autoUpdate);
 
   const handleSystemReset = () => {
     alert("System Resetting...");
@@ -21,12 +19,12 @@ const AdminSettings = () => {
     <div className="admin-settings-container">
       <AdminSidebar />
       <div className="settings-content">
-        <h1 className="settings-title">Admin Settings Panel</h1>
+        <h1 className="settings-title">Settings</h1>
 
         <div className="settings-section">
           <h2 className="section-title">Admin Profile</h2>
           <div className="form-item">
-            <label>Admin Name</label>
+            <label>Name</label>
             <input
               type="text"
               value={adminName}
@@ -55,18 +53,6 @@ const AdminSettings = () => {
                 id="backup"
               />
               <label htmlFor="backup" className="toggle-switch"></label>
-            </div>
-          </div>
-          <div className="form-item toggle">
-            <label>Enable Auto Updates</label>
-            <div className="toggle-container">
-              <input
-                type="checkbox"
-                checked={autoUpdate}
-                onChange={toggleUpdate}
-                id="auto-update"
-              />
-              <label htmlFor="auto-update" className="toggle-switch"></label>
             </div>
           </div>
         </div>

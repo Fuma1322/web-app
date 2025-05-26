@@ -15,19 +15,17 @@ import {
 import axios from "axios";
 import AdminSidebar from "../components/AdminSidebar";
 
-// Initialize Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
   LineElement,
-  ArcElement, // Register PieElement as ArcElement for Pie chart
+  ArcElement,
   Title,
   Tooltip,
   Legend
 );
 
-// Utility functions for localStorage (if needed for fallback)
 const saveDataToLocalStorage = (month, data) => {
   localStorage.setItem(`incomeData-${month}`, JSON.stringify(data));
 };
@@ -37,15 +35,14 @@ const loadDataFromLocalStorage = (month) => {
   return data ? JSON.parse(data) : null;
 };
 
-// Define the loadUserProfile function here
 const loadUserProfile = () => {
   const profile = localStorage.getItem("userProfile");
-  return profile ? JSON.parse(profile) : { name: "", email: "" }; // Default user data
+  return profile ? JSON.parse(profile) : { name: "", email: "" };
 };
 
 const IncomeStatement = () => {
   const [month, setMonth] = useState("April 2025");
-  const [userData, setUserData] = useState(loadUserProfile()); // Load initial user data from localStorage
+  const [userData, setUserData] = useState(loadUserProfile());
   const [data, setData] = useState(
     loadDataFromLocalStorage(month) || {
       revenue: 0,
@@ -56,14 +53,13 @@ const IncomeStatement = () => {
     }
   );
 
-  // Function to load user profile data (from API or local storage)
   const loadUserProfileFromAPI = async () => {
     try {
       const response = await axios.get(
         `http://localhost:5000/api/user/${userData.email}`
       );
-      setUserData(response.data); // Assuming the response has the user data
-      localStorage.setItem("userProfile", JSON.stringify(response.data)); // Save to localStorage
+      setUserData(response.data);
+      localStorage.setItem("userProfile", JSON.stringify(response.data));
     } catch (error) {
       console.error("Error loading user profile:", error);
     }
@@ -71,9 +67,9 @@ const IncomeStatement = () => {
 
   useEffect(() => {
     if (userData.email) {
-      loadUserProfileFromAPI(); // Fetch user profile from API if email exists
+      loadUserProfileFromAPI();
     }
-  }, [userData.email]); // Trigger API call whenever the email changes
+  }, [userData.email]);
 
   const handleChange = (key, value) => {
     setData({ ...data, [key]: Number(value) || 0 });
@@ -138,15 +134,15 @@ const IncomeStatement = () => {
     datasets: [
       {
         label: "Net Income",
-        data: months.map(() => Math.floor(Math.random() * 5000) - 2500), // Random data for visualization
-        backgroundColor: "#6ee7b7", // Green
+        data: months.map(() => Math.floor(Math.random() * 5000) - 2500),
+        backgroundColor: "#6ee7b7",
         borderColor: "#34d399",
         borderWidth: 1,
       },
       {
         label: "Expenses",
-        data: months.map(() => Math.floor(Math.random() * 1000)), // Random expenses for visualization
-        backgroundColor: "#ff4d4d", // Red
+        data: months.map(() => Math.floor(Math.random() * 1000)),
+        backgroundColor: "#ff4d4d",
         borderColor: "#e02424",
         borderWidth: 1,
       },
@@ -185,9 +181,7 @@ const IncomeStatement = () => {
           Projected Monthly Income Statement
         </h1>
 
-        {/* Main Section: User Profile (left) and Income Statement (right) */}
         <div className="main-section">
-          {/* User Profile Section (Left) */}
           <div className="user-profile">
             <h2 className="user-profile-title">User Profile</h2>
             <div className="user-profile-item">
@@ -216,9 +210,7 @@ const IncomeStatement = () => {
             </div>
           </div>
 
-          {/* Income Statement Section (Right) */}
           <div className="income-input-container">
-            {/* Editable Rows */}
             <div className="income-statement-item">
               <span className="income-label">Revenue</span>
               <input
@@ -260,7 +252,6 @@ const IncomeStatement = () => {
               />
             </div>
 
-            {/* Additional Categories */}
             {data.additionalCategories.map((category, index) => (
               <div key={index} className="income-statement-category">
                 <input
@@ -294,9 +285,6 @@ const IncomeStatement = () => {
             </button>
           </div>
         </div>
-
-        {/* Net Income and Chart Section */}
-        <div className="chart-section">
           <p className="net-income">
             Net Income: M {finalNetIncome.toFixed(2)}
           </p>
@@ -310,7 +298,6 @@ const IncomeStatement = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

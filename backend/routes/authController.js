@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { sendEmail } from "../utils/sendEmail.js";
 
-const ADMIN_CODE = "IWB-ADMIN-2024";
+const ADMIN_CODE = "IWB-1234";
 const MAX_ADMINS = 3;
 
 export const signup = async (req, res) => {

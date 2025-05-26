@@ -53,7 +53,6 @@ export const verifyOTP = async (req, res) => {
       return res.status(404).json({ message: "User not found." });
     }
 
-    // Use instance method to check if OTP is expired
     if (user.otp !== otp || user.isOtpExpired()) {
       return res.status(400).json({ message: "Invalid or expired OTP." });
     }
