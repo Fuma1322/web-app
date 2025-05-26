@@ -1,4 +1,3 @@
-// models/IncomeStatement.js
 import mongoose from "mongoose";
 
 const incomeStatementSchema = new mongoose.Schema({

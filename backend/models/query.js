@@ -1,5 +1,3 @@
-// models/queryModel.js 
-
 import mongoose from 'mongoose';
 
 const querySchema = new mongoose.Schema({

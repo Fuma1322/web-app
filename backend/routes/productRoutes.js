@@ -9,13 +9,11 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Serve static files from the 'uploads' folder
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-// Set up Multer storage configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // Directory to store images
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     const fileExt = path.extname(file.originalname);
@@ -26,7 +24,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// POST new product
 app.post("/api/products", upload.single("image"), async (req, res) => {
   try {
     const { name, type, cpu, ram, storage, gpu, price, status, tags } = req.body;
@@ -49,7 +46,6 @@ app.post("/api/products", upload.single("image"), async (req, res) => {
   }
 });
 
-// GET all products
 app.get("/api/products", async (req, res) => {
   try {
     const products = await Product.find();
@@ -59,7 +55,6 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-// PUT update product
 app.put("/api/products/:id", async (req, res) => {
   try {
     const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -69,7 +64,6 @@ app.put("/api/products/:id", async (req, res) => {
   }
 });
 
-// DELETE product
 app.delete("/api/products/:id", async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);

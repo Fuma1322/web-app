@@ -13,7 +13,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST new sale
 router.post("/", async (req, res) => {
   try {
     const { date, product, amount, salesperson, status, paymentMethod, saleType } = req.body;
@@ -21,7 +20,7 @@ router.post("/", async (req, res) => {
     if (!date || !product || !amount || !salesperson || !status || !paymentMethod || !saleType) {
       return res.status(400).json({ message: "All fields are required" });
     }
-    
+
     const newSale = new Sales({
       date,
       product,
@@ -39,7 +38,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// UPDATE a sale
 router.put("/:id", async (req, res) => {
   try {
     const { date, product, amount, salesperson, status, paymentMethod, saleType } = req.body;
@@ -55,7 +53,7 @@ router.put("/:id", async (req, res) => {
         paymentMethod,
         saleType,
       },
-      { new: true } // Return the updated document
+      { new: true }
     );
 
     if (!updatedSale) {
@@ -68,7 +66,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// DELETE a sale
 router.delete("/:id", async (req, res) => {
   try {
     const deletedSale = await Sales.findByIdAndDelete(req.params.id);

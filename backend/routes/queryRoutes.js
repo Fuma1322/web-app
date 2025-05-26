@@ -4,12 +4,10 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 
-// Define __dirname for ES Modules
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const router = express.Router();
 
-// 🔍 Function: Compare message similarity
 function findSimilarQuery(newMessage, previousQueries) {
   let bestMatch = null;
   let highestScore = 0;
@@ -25,7 +23,6 @@ function findSimilarQuery(newMessage, previousQueries) {
   return bestMatch;
 }
 
-// 🔣 Simple similarity scoring (word-based)
 function simpleSimilarity(str1, str2) {
   const words1 = new Set(str1.toLowerCase().split(/\s+/));
   const words2 = new Set(str2.toLowerCase().split(/\s+/));
@@ -33,7 +30,6 @@ function simpleSimilarity(str1, str2) {
   return intersection.size / Math.max(words1.size, words2.size);
 }
 
-// 📧 Nodemailer setup
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -42,7 +38,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// ✅ POST: Log a new query
 router.post('/', async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -89,7 +84,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// ✅ GET: All queries
 router.get('/', async (req, res) => {
   try {
     const queries = await Query.find().sort({ createdAt: -1 });
@@ -99,7 +93,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ✅ PUT: Update query status
 router.put('/:id', async (req, res) => {
   try {
     const { status } = req.body;
@@ -117,7 +110,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// ✅ DELETE: Remove query by ID
 router.delete('/:id', async (req, res) => {
   try {
     const deleted = await Query.findByIdAndDelete(req.params.id);

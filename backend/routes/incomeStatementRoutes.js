@@ -1,10 +1,8 @@
-// routes/incomeStatementRoutes.js
 import express from "express";
 import IncomeStatement from "../models/IncomeStatement.js";
 
 const router = express.Router();
 
-// Create or Update Income Statement
 router.post("/", async (req, res) => {
   const {
     userId,
@@ -20,7 +18,6 @@ router.post("/", async (req, res) => {
     let incomeStatement = await IncomeStatement.findOne({ userId, month });
 
     if (incomeStatement) {
-      // Update existing income statement
       incomeStatement.revenue = revenue;
       incomeStatement.costOfGoodsSold = costOfGoodsSold;
       incomeStatement.operatingExpenses = operatingExpenses;
@@ -30,7 +27,6 @@ router.post("/", async (req, res) => {
       await incomeStatement.save();
       return res.json(incomeStatement);
     } else {
-      // Create new income statement
       incomeStatement = new IncomeStatement({
         userId,
         month,
@@ -50,7 +46,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get Income Statement by User ID and Month
 router.get("/:userId/:month", async (req, res) => {
   const { userId, month } = req.params;
 

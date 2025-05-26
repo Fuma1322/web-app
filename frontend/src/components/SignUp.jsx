@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "../styles/SignUp.css";
-import robotImage from "/images/ROBOT.png";
-import logo from "/images/logo.jpg";
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +40,7 @@ const SignUp = () => {
     try {
       // POST request to backend
       const response = await axios.post(
-        "http://localhost:5000/api/signup", // updated to use local server
+        "http://localhost:5000/api/signup",
         {
           username,
           email,
@@ -53,10 +51,9 @@ const SignUp = () => {
       );
 
       if (response.status === 201) {
-        navigate("/login"); // Redirect to login page after successful signup
+        navigate("/login");
       }
     } catch (err) {
-      // Display error if there's an issue with the request
       setError(
         err.response?.data?.message || "An error occurred. Please try again."
       );
@@ -65,23 +62,9 @@ const SignUp = () => {
 
   return (
     <div className="signup-ui-container">
-      <div className="left-panel">
-        <div className="robot-wrapper">
-          <img src={robotImage} alt="Robot" className="robot-img" />
-          <div className="knee-caption">IWB Technologies</div>
-        </div>
-      </div>
-
       <div className="right-panel">
         <div className="signup-form-box">
-          <div className="glow-border"></div>
-
           <h2>{isAdmin ? "Admin Sign Up" : "Create an account"}</h2>
-
-          <div className="logo-wrapper">
-            <img src={logo} alt="logo" className="logo" />
-          </div>
-
           <p className="login-text">
             Already have an account?{" "}
             <span className="login-link" onClick={() => navigate("/login")}>
@@ -91,7 +74,6 @@ const SignUp = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="input-wrapper">
-              <FaUser className="input-icon" />
               <input
                 type="text"
                 name="username"
@@ -102,7 +84,6 @@ const SignUp = () => {
             </div>
 
             <div className="input-wrapper">
-              <FaEnvelope className="input-icon" />
               <input
                 type="email"
                 name="email"
@@ -113,7 +94,6 @@ const SignUp = () => {
             </div>
 
             <div className="input-wrapper">
-              <FaLock className="input-icon" />
               <input
                 type="password"
                 name="password"
@@ -125,7 +105,6 @@ const SignUp = () => {
 
             {isAdmin && (
               <div className="input-wrapper">
-                <FaLock className="input-icon" />
                 <input
                   type="text"
                   name="adminCode"

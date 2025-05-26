@@ -3,17 +3,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { sendEmail } from "../utils/sendEmail.js";
 
-const ADMIN_CODE = "IWB-ADMIN-2024";
-const MAX_ADMINS = 3;
+const ADMIN_CODE = "IWB-1234";
+const MAX_ADMINS = 2;
 
 export const signup = async (req, res) => {
   try {
     const { username, email, password, role, adminCode } = req.body;
-
     if (!username || !email || !password) {
       return res.status(400).json({ message: "All fields are required." });
     }
-
     if (role === "admin") {
       const adminCount = await User.countDocuments({ role: "admin" });
       if (adminCount >= MAX_ADMINS)
@@ -21,11 +19,9 @@ export const signup = async (req, res) => {
       if (adminCode !== ADMIN_CODE)
         return res.status(401).json({ message: "Invalid admin code." });
     }
-
     const existing = await User.findOne({ email });
     if (existing)
-      return res.status(409).json({ message: "Email already registered." });
-
+    return res.status(409).json({ message: "Email already registered." });
     const hashedPassword = await bcrypt.hash(password, 12);
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -35,7 +31,7 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       role: role || "user",
       otp,
-      otpExpires: Date.now() + 10 * 60 * 1000, // 10 min
+      otpExpires: Date.now() + 10 * 60 * 1000,
     });
 
     await sendEmail(email, "Your OTP Verification Code", `Your OTP is: ${otp}`);

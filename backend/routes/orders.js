@@ -3,7 +3,6 @@ import Order from '../models/Order.js';
 
 const router = express.Router();
 
-// Get all orders
 router.get('/', async (req, res) => {
     try {
         const orders = await Order.find().populate('productId');

@@ -1,9 +1,9 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
-const sendEmail = async (to, subject, text) => {
+export const sendEmail = async (to, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({
-      service: "Gmail", // or use 'hotmail', 'yahoo', or SMTP
+      service: "Gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -22,5 +22,3 @@ const sendEmail = async (to, subject, text) => {
     console.error("❌ Failed to send email:", error.message);
   }
 };
-
-module.exports = sendEmail;
