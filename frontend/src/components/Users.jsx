@@ -1,9 +1,5 @@
 import React from 'react'
 import { motion } from "framer-motion";
-import Thabo from "./us/Thabo.jpg";
-import Kay from "./us/Kay.jpg";
-import Mamosa from "./us/Mamosa.jpg";
-import Micasa from "./us/Micasa.jpg";
 import AdminSidebar from './AdminSidebar';
 
 export default function Users() {
@@ -14,23 +10,23 @@ export default function Users() {
           <h2>Admins</h2>
           <div className="admin-cards">
             <motion.div className="admin-card" whileHover={{ scale: 1.05 }}>
-              <img src={Thabo} alt="Thabo Tlou" />
-              <h4>Thabo Tlou</h4>
-              <p>Founder & CTO</p>
+              <img src="/images/pic06.jpg" alt="admin01" />
+              <h4>John Doe</h4>
+              <p>Sytems Architect</p>
             </motion.div>
             <motion.div className="admin-card" whileHover={{ scale: 1.05 }}>
-              <img src={Micasa} alt="Thato Chelane" />
-              <h4>Thato Chelane</h4>
-              <p>Founder & CTO</p>
+              <img src="/images/pic07.jpg" alt="admin02" />
+              <h4>Jane Doe</h4>
+              <p>Head of Cybersecurity</p>
             </motion.div>
             <motion.div className="admin-card" whileHover={{ scale: 1.05 }}>
-              <img src={Mamosa} alt="Mamosa Motsie" />
-              <h4>Mamosa Motsie</h4>
-              <p>Co-Founder & Operations</p>
+              <img src="/images/pic08.jpg" alt="admin03" />
+              <h4>Lebohang Mitchell</h4>
+              <p>Founder & CEO</p>
             </motion.div>
             <motion.div className="admin-card" whileHover={{ scale: 1.05 }}>
-              <img src={Kay} alt="Keletso Hato" />
-              <h4>Keletso Hato</h4>
+              <img src="/images/pic09.jpg" alt="admin04" />
+              <h4>Patricia Smith</h4>
               <p>Head of Security</p>
             </motion.div>
           </div>

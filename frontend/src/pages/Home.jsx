@@ -23,7 +23,7 @@ const HomePage = () => {
 
         <div className="media-container">
           <img
-            src="/images/img.jpg"
+            src="/images/pic02.jpg"
             alt="Hero Visual"
             className="hero-image"
           />
@@ -32,12 +32,12 @@ const HomePage = () => {
 
       <section className="first-section">
         <div className="media-container">
-          <img src="/images/store.jpg" width={500} height={400} alt="Photo" className="imagee"/>
+          <img src="/images/pic04.jpg" width={500} height={400} alt="Photo" className="imagee"/>
         </div>
 
         <div className="cta-content">
-          <h2>Laptop Refurbishment</h2>
-          <p>High-quality refurbished laptops for your needs</p>
+          <h2>Personal Computers</h2>
+          <p>High-quality laptops for you.</p>
           <button className="shop-btn">
             <Link
               to="/inventory"
@@ -68,7 +68,7 @@ const HomePage = () => {
         <div className="grid-card row-reverse">
           <div className="image-placeholder2">
             <img
-              src="/images/INVENTORY.png"
+              src="/images/pic05.jpg"
               width={500}
               height={400} 
               alt="Photo"

@@ -27,7 +27,7 @@ const LandingPage = () => {
       <div className="right-side animate-slide-in">
         <img
           src="/images/Logo (2).png"
-          alt="Tech Illustration"
+          alt="logo"
           className="floating-img"
         />
       </div>

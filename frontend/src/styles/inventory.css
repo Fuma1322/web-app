@@ -1,37 +1,34 @@
 :root {
-  --primary-color: #fbba3f;
-  --hover-color: #ffd873;
-  --dark-bg: #1e1e2f;
-  --panel-dark: #2d2d3d;
-  --form-bg: #29293d;
-  --input-bg: #3a3a4d;
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --form-bg: #f0f4f8;               
+  --input-bg: #ffffff;              
   --white: #ffffff;
-  --light-gray: #ccc;
-  --lighter-gray: #cedbe9;
-  --error-red: #ff6b6b;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --max-width: 100%;
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
 }
 
-body {
-  background: var(--dark-bg);
-  color: var(--white);
-  font-family: "Segoe UI", sans-serif;
+html, body, #root {
+  background-color: white;
+  height: 100%;
   margin: 0;
-  transition: background 0.3s ease, color 0.3s ease;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-/* Layout with Sidebar */
 .layout {
   display: flex;
   min-height: 100vh;
 }
 
 .sidebar {
-  background-color: var(--panel-dark);
+  background-color: var(--panel-light);
   width: 250px;
   padding: 1.5rem 1rem;
-  color: var(--white);
+  color: black;
   position: sticky;
   top: 0;
   height: 100vh;
