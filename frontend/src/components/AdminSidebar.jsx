@@ -1,12 +1,15 @@
 import React from "react";
-import { BiUser } from "react-icons/bi";
+import { BiCog, BiHome, BiUser } from "react-icons/bi";
+import { BsActivity, BsBox } from "react-icons/bs";
 import {
   FaTachometerAlt,
   FaUsers,
   FaBoxOpen,
   FaFileAlt,
   FaCog,
+  FaAngrycreative,
 } from "react-icons/fa";
+import { FiLayout } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -16,8 +19,12 @@ const AdminSidebar = () => {
         <h2>IWB</h2>
       </div>
       <nav className="sidebar-nav">
+        <Link to="/" className="sidebar-link">
+          <BiHome className="icon" />
+          <span>Home</span>
+        </Link>
         <Link to="/dashboard" className="sidebar-link">
-          <FaTachometerAlt className="icon" />
+          <BsActivity className="icon" />
           <span>Dashboard</span>
         </Link>
         <Link to="/users" className="sidebar-link">
@@ -25,15 +32,15 @@ const AdminSidebar = () => {
           <span>Users</span>
         </Link>
         <Link to="/admin-inventory" className="sidebar-link">
-          <FaBoxOpen className="icon" />
+          <BsBox className="icon" />
           <span>Products</span>
         </Link>
         <Link to="/income-statements" className="sidebar-link">
-          <FaFileAlt className="icon" />
+          <FiLayout className="icon" />
           <span>Income Statements</span>
         </Link>
         <Link to="/settings" className="sidebar-link">
-          <FaCog className="icon" />
+          <BiCog className="icon" />
           <span>Settings</span>
         </Link>
       </nav>
