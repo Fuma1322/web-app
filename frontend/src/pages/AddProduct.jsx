@@ -84,7 +84,7 @@ const AddProduct = () => {
       setImage(null);
       setTags("");
 
-      console.log(data); // You can use 'data.image' here to display the uploaded image
+      console.log(data);
     } catch (error) {
       setError(error.message);
       setSuccess(false);
@@ -93,7 +93,6 @@ const AddProduct = () => {
 
   return (
     <div className="add-product-container">
-      <Header />
       <div className="header">
         <h1>Add New Product</h1>
       </div>
@@ -104,7 +103,6 @@ const AddProduct = () => {
       )}
 
       <div className="content">
-        {/* Upload Section */}
         <div
           className="upload-section"
           onDrop={handleDrop}
@@ -112,7 +110,7 @@ const AddProduct = () => {
         >
           {image ? (
             <img
-              src={URL.createObjectURL(image)} // Display the image before submitting
+              src={URL.createObjectURL(image)}
               alt="Product"
               className="image-preview"
             />
@@ -225,7 +223,7 @@ const AddProduct = () => {
             </div>
 
             <button type="submit" className="publish-button">
-              Publish Product
+              Add Product
             </button>
           </form>
         </div>

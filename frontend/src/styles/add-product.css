@@ -1,16 +1,22 @@
 :root {
-  --primary-color: #fbba3f;
-  --hover-color: #ffd873;
-  --dark-bg: #1e1e2f;
-  --panel-dark: #2d2d3d;
-  --form-bg: #29293d;
-  --input-bg: #3a3a4d;
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --form-bg: #f0f4f8;               
+  --input-bg: #ffffff;              
   --white: #ffffff;
-  --light-gray: #ccc;
-  --lighter-gray: #cedbe9;
-  --error-red: #ff6b6b;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --max-width: 100%;
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
+}
+
+html, body, #root {
+  background-color: white;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .add-product-container {
@@ -19,15 +25,9 @@
   margin: 0 auto;
 }
 
-.header h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-
 .error-message,
 .success-message {
-  background-color: var(--panel-dark);
+  background-color: var(--panel-light);
   padding: 0.75rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -42,19 +42,25 @@
   color: #52c41a;
 }
 
+.header {
+  margin-top: 80px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 .content {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-/* Upload Section */
 .upload-section {
   background-color: var(--panel-dark);
   flex: 1;
   width: 0px;
   height: 450px;
-  border: 2px dashed var(--input-bg);
+  border: 2px dashed var(--inputt-bg);
   border-radius: 12px;
   position: relative;
   display: flex;
@@ -65,7 +71,7 @@
 }
 
 .upload-section:hover {
-  border-color: var(--primary-color);
+  border-color: var(--prima-color);
 }
 
 .upload-placeholder {
@@ -81,11 +87,10 @@
   font-size: 0.8rem;
 }
 
-/* Updated file-input for smaller clickable area */
 .file-input {
   position: absolute;
-  width: 120px; /* Reduced clickable width */
-  height: 120px; /* Reduced clickable height */
+  width: 120px;
+  height: 120px;
   opacity: 0;
   cursor: pointer;
   top: 50%;
@@ -93,7 +98,7 @@
   transform: translate(
     -50%,
     -50%
-  ); /* Center the input within the upload section */
+  );
 }
 
 .image-preview {
@@ -103,10 +108,9 @@
   border-radius: 12px;
 }
 
-/* Form Section */
 .form-section {
   flex: 2;
-  background-color: var(--form-bg);
+  background-color: var(--light-gray);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px var(--shadow-color);
@@ -133,41 +137,40 @@
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-bg);
+  background-color: var(--inputt-bg);
+  border: 1px solid var(--inputt-bg);
   padding: 10px 12px;
   border-radius: 6px;
   color: var(--white);
   font-size: 0.85rem;
   outline: none;
-  height: 42px; /* Same height */
+  height: 42px;
   line-height: 1.2;
   box-sizing: border-box;
-  appearance: none; /* Important for select */
+  appearance: none;
   vertical-align: middle;
 }
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--primary-color);
+  border-color: var(--prima-color);
 }
 .form-group select {
-  padding-right: 32px; /* Leave room for dropdown arrow */
+  padding-right: 32px;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px 8px;
 }
 .form-group textarea {
-  min-height: 100px; /* Only textarea taller */
+  min-height: 100px;
   height: auto;
   resize: vertical;
 }
 
-/* Publish Button */
 .publish-button {
   margin-top: 2rem;
-  background-color: var(--primary-color);
+  background-color: var(--prima-color);
   color: var(--dark-bg);
   border: none;
   padding: 1rem 2rem;
