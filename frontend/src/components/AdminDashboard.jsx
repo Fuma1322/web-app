@@ -31,9 +31,10 @@ const AdminDashboard = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <li>User Kenneth updated Inventory</li>
-            <li>New Partner Application submitted</li>
-            <li>Thato added a new Desktop</li>
+            <li>Admin Jane updated Income Statements</li>
+            <li>New admin request received</li>
+            <li>New product added to inentory</li>
+            <li>New User registered successfullyy</li>
           </motion.ul>
         </section>
       </main>

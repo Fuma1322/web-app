@@ -53,10 +53,6 @@ const Repairs = () => {
           </div>
         ))}
       </div>
-
-      <footer className="repairs-footer">
-        <p>&copy; 2025 IWB Technologies. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

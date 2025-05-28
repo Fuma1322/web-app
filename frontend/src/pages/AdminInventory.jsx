@@ -11,7 +11,6 @@ const AdminInventory = () => {
   const [actionMessage, setActionMessage] = useState("");
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Fetch products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -28,12 +27,11 @@ const AdminInventory = () => {
     fetchProducts();
   }, []);
 
-  // Delete product
   const handleDeleteProduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/products/${id}`);
       setProducts(products.filter((product) => product._id !== id));
-      setActionMessage("Product has been deleted successfully! 🧹");
+      setActionMessage("Product has been deleted successfully!");
     } catch (error) {
       console.error("Error deleting product:", error);
       setError("Failed to delete product");
@@ -41,7 +39,7 @@ const AdminInventory = () => {
   };
 
   const handleUpdateProduct = (id) => {
-    setActionMessage(`Product with ID ${id} has been updated! ✏️`);
+    setActionMessage(`Product with ID ${id} has been updated!`);
   };
 
   const toggleSidebar = () => {
@@ -66,7 +64,7 @@ const AdminInventory = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Inventory Management
+            Inventory
           </motion.h1>
         </header>
 

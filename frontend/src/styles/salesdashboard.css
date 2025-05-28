@@ -1,16 +1,15 @@
 /* Global Styles */
 :root {
-  --primary-color: #fbba3f;
-  --hover-color: #ffd873;
-  --dark-bg: #1e1e2f;
-  --panel-dark: #2d2d3d;
-  --form-bg: #29293d;
-  --input-bg: #3a3a4d;
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --form-bg: #f0f4f8;               
+  --input-bg: #ffffff;              
   --white: #ffffff;
-  --light-gray: #ccc;
-  --lighter-gray: #cedbe9;
-  --error-red: #ff6b6b;
-  --shadow-color: rgba(0, 0, 0, 0.4);
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
 
   --accent-color: #4ecdc4;
   --highlight-color: #2d9c8f;
@@ -27,7 +26,7 @@
 }
 
 body {
-  background-color: var(--dark-bg);
+  background-color: white;
 
   line-height: 1.6;
 }
@@ -41,15 +40,14 @@ body {
 h1.dashboard-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--prima-color);
   text-align: center;
   margin-bottom: 20px;
   animation: fadeIn 1s ease-out;
 }
 
-/* Add Sale Form */
 .add-sale-form {
-  background-color: var(--form-bg);
+  background-color: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px var(--shadow-color);
@@ -73,42 +71,41 @@ h1.dashboard-title {
   border: 1px solid var(--lighter-gray);
   border-radius: 6px;
   font-size: 1rem;
-  background-color: var(--input-bg);
-  color: var(--white);
+  background-color: var(--inputt-bg);
+  color: black;
 }
 
 .add-sale-form button {
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--prima-color);
+  color: black;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .add-sale-form button:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hove-color);
 }
 
-/* New Sale View */
 .new-sale-view {
-  background-color: var(--panel-dark);
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
-  box-shadow: 0 2px 10px var(--shadow-color);
+  box-shadow: 0 2px 10px;
   animation: fadeIn 1s ease-out;
 }
 
 .new-sale-view h2 {
-  color: var(--highlight-color);
+  color: black;
 }
 
 .new-sale-view p {
   margin: 10px 0;
+  color: black;
 }
 
-/* Chart Section */
 .chart-section {
-  background-color: var(--panel-dark);
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
@@ -121,9 +118,8 @@ h1.dashboard-title {
   height: 400px;
 }
 
-/* Sales Table */
 .sales-table {
-  background-color: var(--panel-dark);
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px var(--shadow-color);
@@ -146,11 +142,12 @@ h1.dashboard-title {
 .sales-table td {
   padding: 12px;
   border-bottom: 1px solid var(--lighter-gray);
+  color: black;
 }
 
 .sales-table th {
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--prima-color);
+  color: black;
 }
 
 .sales-table td {
@@ -159,7 +156,7 @@ h1.dashboard-title {
 
 .sales-table button {
   background-color: var(--accent-color);
-  color: var(--white);
+  color: black;
   padding: 6px 12px;
   border: none;
   border-radius: 4px;
@@ -171,7 +168,6 @@ h1.dashboard-title {
   background-color: var(--highlight-color);
 }
 
-/* Hover Effects */
 .sales-table tr:hover {
   background-color: var(--lighter-gray);
 }
@@ -184,7 +180,6 @@ h1.dashboard-title {
   transform: scale(0.95);
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;

@@ -191,7 +191,7 @@ const AddProduct = () => {
             </div>
 
             <div className="form-group">
-              <label>Price ($)</label>
+              <label>Price (M)</label>
               <input
                 type="number"
                 value={price}
@@ -207,7 +207,6 @@ const AddProduct = () => {
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="Available">Available</option>
-                <option value="Recycled">Recycled</option>
                 <option value="Out of Stock">Out of Stock</option>
               </select>
             </div>

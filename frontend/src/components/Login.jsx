@@ -10,7 +10,6 @@ const Login = () => {
   });
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
   const [adminCount, setAdminCount] = useState(0);
   const navigate = useNavigate();
 
@@ -37,60 +36,46 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { email, password, adminCode } = formData;
+  e.preventDefault();
+  const { email, password } = formData;
 
-    if (!email || !password) {
-      setError("Please fill in both fields.");
-      return;
-    }
+  if (!email || !password) {
+    setError("Please fill in both fields.");
+    return;
+  }
 
-    setError("");
-    setSuccessMessage("");
+  setError("");
+  setSuccessMessage("");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
-      if (response.ok) {
-        localStorage.setItem("token", data.token);
-        setSuccessMessage("Login successful!");
+    if (response.ok) {
+      localStorage.setItem("token", data.token);
+      setSuccessMessage("Login successful! ✅");
 
+      setTimeout(() => {
         if (data.isAdmin) {
-          setIsAdmin(true);
-        }
-
-        setTimeout(() => {
+          navigate("/dashboard");
+        } else {
           navigate("/");
-        }, 1500);
-      } else {
-        setError(data.message || "Invalid email or password.");
-      }
-    } catch (err) {
-      setError("Unable to connect to the server. Please try again.");
+        }
+      }, 1000);
+    } else {
+      setError(data.message || "Invalid email or password.");
     }
-  };
-
-  const handleAdminCodeSubmit = async () => {
-    const { adminCode } = formData;
-
-    if (adminCode !== "IWB-1234") {
-      setError("Invalid admin code.");
-      return;
-    }
-
-    setSuccessMessage("Admin login successful!");
-    setTimeout(() => {
-      navigate("/dashboard");
-    }, 1500);
-  };
+  } catch (err) {
+    setError("Unable to connect to the server. Please try again.");
+  }
+};
 
   return (
     <div className="login-page-body">
@@ -134,25 +119,6 @@ const Login = () => {
                 <p className="login-page-login-text">
                   Do not have an account? <a href="/signup">Sign Up</a>
                 </p>
-
-                {isAdmin && adminCount < 3 && (
-                  <div className="login-page-input-wrapper admin-code">
-                    <input
-                      type="text"
-                      name="adminCode"
-                      placeholder="Enter Admin Code"
-                      value={formData.adminCode}
-                      onChange={handleChange}
-                    />
-                    <button
-                      type="button"
-                      onClick={handleAdminCodeSubmit}
-                      className="login-page-admin-btn"
-                    >
-                      Submit Admin Code
-                    </button>
-                  </div>
-                )}
               </form>
             </div>
           </div>

@@ -10,13 +10,16 @@ const About = () => {
                 <h1>About Us</h1>
                 <div className="Paragraph">
                 <p>
-                    We are a private company, and we specialize in providing Basotho with
-                    amazing technology accessories with a variety of technologies including
-                    smart phones, laptops and many more available.
+                    IWB Technologies is a proudly Basotho-owned private
+                    company dedicated to empowering communities across 
+                    Lesotho through affordable, high-quality technology. 
+                    We specialize in refurbished laptops, smartphones, and 
+                    tech accessories — transforming electronic waste into economic 
+                    opportunity. At IWB, innovation meets sustainability to deliver
+                    reliable tech solutions that serve people and the planet.
                 </p>
                 </div>
             </section>
-            <Footer />
         </div>
     );
 }

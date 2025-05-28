@@ -39,7 +39,7 @@ html, body, #root {
 .sidebar h2 {
   margin-top: 0;
   font-size: 1.4rem;
-  color: var(--primary-color);
+  color: var(--prima-color);
 }
 
 .sidebar ul {
@@ -54,7 +54,7 @@ html, body, #root {
 
 .sidebar ul li a {
   text-decoration: none;
-  color: var(--lighter-gray);
+  color: white;
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -63,14 +63,14 @@ html, body, #root {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background-color: var(--primary-color);
+  background-color: var(--prima-color);
   color: #000;
 }
 
 .main-content {
   flex: 1;
   padding: 2rem;
-  background-color: var(--dark-bg);
+  background-color: white;
 }
 
 .inventory-container {
@@ -102,11 +102,11 @@ html, body, #root {
 
 .admin-toggle-btn:hover {
   transform: scale(1.05);
-  background-color: var(--primary-color);
+  background-color: var(--prima-color);
 }
 
 .theme-toggle {
-  background: linear-gradient(145deg, var(--primary-color), var(--hover-color));
+  background: linear-gradient(145deg, var(--prima-color), var(--hove-color));
   color: #000;
   font-weight: bold;
   border: none;
@@ -119,7 +119,7 @@ html, body, #root {
 }
 
 .theme-toggle:hover {
-  background: var(--hover-color);
+  background: var(--hove-color);
   transform: scale(1.05);
 }
 
@@ -133,7 +133,7 @@ html, body, #root {
 }
 
 .filter-buttons button {
-  background: var(--primary-color);
+  background: var(--prima-color);
   color: #000;
   border: none;
   padding: 0.7rem 1rem;
@@ -156,8 +156,8 @@ html, body, #root {
   font-size: 0.9rem;
   border: 1px solid var(--light-gray);
   border-radius: 5px;
-  background: var(--input-bg);
-  color: var(--white);
+  background: var(--inputt-bg);
+  color: black;
 }
 
 .inventory-grid {
@@ -167,7 +167,7 @@ html, body, #root {
 }
 
 .inventory-card {
-  background: var(--panel-dark);
+  background: white;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px var(--shadow-color);
@@ -191,14 +191,14 @@ html, body, #root {
 
 .inventory-info h3 {
   margin: 0 0 0.5rem;
-  color: var(--white);
+  color: black;
 }
 
 .inventory-info ul {
   padding-left: 1rem;
   margin: 0;
   list-style-type: square;
-  color: var(--lighter-gray);
+  color: black;
   font-size: 0.95rem;
 }
 
@@ -211,7 +211,7 @@ html, body, #root {
 }
 
 .card-actions button {
-  background: var(--primary-color);
+  background: var(--prima-color);
   border: none;
   padding: 0.4rem 0.8rem;
   cursor: pointer;
@@ -222,12 +222,12 @@ html, body, #root {
 }
 
 .card-actions button:hover {
-  background: var(--hover-color);
+  background: var(--hove-color);
 }
 
 .status {
   padding: 0.3rem 0.6rem;
-  border-radius: 3px;
+  border-radius: 2px;
   font-size: 0.85rem;
   font-weight: bold;
   color: #fff;
@@ -235,10 +235,6 @@ html, body, #root {
 
 .status.available {
   background-color: green;
-}
-
-.status.recycled {
-  background-color: var(--error-red);
 }
 
 .tag-container {
@@ -255,7 +251,6 @@ html, body, #root {
   border-radius: 4px;
 }
 
-/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -275,7 +270,7 @@ html, body, #root {
   border-radius: 10px;
   width: 90%;
   max-width: 600px;
-  color: var(--white);
+  color: black;
   position: relative;
   animation: fadeIn 0.4s ease;
 }
@@ -292,7 +287,7 @@ html, body, #root {
 
 .modal-content button {
   margin-top: 1rem;
-  background: var(--primary-color);
+  background: var(--prima-color);
   border: none;
   padding: 0.5rem 1rem;
   color: #000;
@@ -302,13 +297,13 @@ html, body, #root {
 }
 
 .modal-content button:hover {
-  background: var(--hover-color);
+  background: var(--hove-color);
 }
 
 .inventory-footer {
   text-align: center;
   margin-top: 2rem;
-  color: var(--light-gray);
+  color: black;
   font-size: 0.85rem;
 }
 

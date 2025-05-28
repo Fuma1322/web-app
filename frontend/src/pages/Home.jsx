@@ -37,7 +37,7 @@ const HomePage = () => {
 
         <div className="cta-content">
           <h2>Personal Computers</h2>
-          <p>High-quality laptops for you.</p>
+          <p>High-end refurbished laptops to suit your style.</p>
           <button className="shop-btn">
             <Link
               to="/inventory"

@@ -1,3 +1,16 @@
+:root {
+  --prima-color: #4facfe;
+  --hove-color: #00f2fe;           
+  --panel-light: #ffffff;            
+  --form-bg: #f0f4f8;               
+  --input-bg: #ffffff;              
+  --white: #ffffff;
+  --light-gray: #b0bec5;           
+  --lighter-gray: #e3f2fd;        
+  --error-red: #e57373;             
+  --shadow-color: rgba(0, 0, 0, 0.1); 
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -19,10 +32,9 @@ body {
 
 .repairs-header h1 {
   font-size: 3rem;
-  background: linear-gradient(to right, #ffcc00, #ff9100);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: 700;
+  margin-top: 12px;
+  color: var(--prima-color);
 }
 
 .repairs-header p {
@@ -56,13 +68,13 @@ body {
 }
 
 .repair-item h3 {
-  color: #ffcc00;
+  color: var(--prima-color);
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
 .repair-item p {
-  color: #ccc;
+  color: black;
   font-size: 0.95rem;
   margin: 0.4rem 0;
 }
@@ -72,7 +84,7 @@ body {
   display: inline-block;
   padding: 0.4rem 1rem;
   font-size: 0.85rem;
-  border-radius: 30px;
+  border-radius: 6px;
   font-weight: 600;
   width: fit-content;
 }
