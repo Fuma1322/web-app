@@ -26,7 +26,6 @@ app.use("/api/sales", salesRoute);
 app.use("/api/client-queries", queryRoutes);
 app.use("/api/auth", authRoutes);
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

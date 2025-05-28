@@ -10,7 +10,7 @@ const HomePage = () => {
       <section className="first-section">
         <div className="cta-content">
           <h2>IWB</h2>
-          <p>Transforming e-waste into opportunity across Southern Africa.</p>
+          <p>Transforming e-waste into opportunities across Southern Africa.</p>
           <div className="cta-buttons">
             <Link to="/login" className="btn-primary glow">
               Sign In
