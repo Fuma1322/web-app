@@ -1,5 +1,4 @@
 import User from "../models/User.js";
-import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { sendEmail } from "../utils/sendEmail.js";
 
@@ -26,16 +25,15 @@ export const signup = async (req, res) => {
     if (existing)
       return res.status(409).json({ message: "Email already registered." });
 
-    const hashedPassword = await bcrypt.hash(password, 12);
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
     const user = await User.create({
       username,
       email,
-      password: hashedPassword,
+      password,
       role: role || "user",
       otp,
-      otpExpires: Date.now() + 10 * 60 * 1000,
+      otpExpires: Date.now() + 10 * 60 * 1000, // 10 min
     });
 
     await sendEmail(email, "Your OTP Verification Code", `Your OTP is: ${otp}`);
@@ -43,11 +41,13 @@ export const signup = async (req, res) => {
     res
       .status(201)
       .json({ message: "Signup successful. Check your email for OTP." });
+
+    console.log("Signup route hit");
   } catch (error) {
     res.status(500).json({ message: "Signup failed", error: error.message });
   }
-  console.log("Signup route hit");
 };
+
 
 export const verifyOTP = async (req, res) => {
   try {

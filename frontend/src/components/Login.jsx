@@ -81,14 +81,14 @@ const Login = () => {
   const handleAdminCodeSubmit = async () => {
     const { adminCode } = formData;
 
-    if (adminCode !== "admin123") {
+    if (adminCode !== "IWB-1234") {
       setError("Invalid admin code.");
       return;
     }
 
     setSuccessMessage("Admin login successful!");
     setTimeout(() => {
-      navigate("/admin-dashboard");
+      navigate("/dashboard");
     }, 1500);
   };
 
