@@ -43,8 +43,6 @@ html, body, #root {
 }
 
 .header {
-  margin-top: 80px;
-  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -161,6 +159,7 @@ html, body, #root {
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px 8px;
+  color: black;
 }
 .form-group textarea {
   min-height: 100px;

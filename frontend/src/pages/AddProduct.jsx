@@ -94,9 +94,9 @@ const AddProduct = () => {
   return (
     <div className="add-product-container">
       <div className="header">
-        <h1>Add New Product</h1>
+        <Header />
       </div>
-
+        <h1>Add New Product</h1>
       {error && <p className="error-message">{error}</p>}
       {success && (
         <p className="success-message">Product added successfully!</p>
