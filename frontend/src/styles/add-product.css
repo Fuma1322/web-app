@@ -139,7 +139,7 @@ html, body, #root {
   border: 1px solid var(--inputt-bg);
   padding: 10px 12px;
   border-radius: 6px;
-  color: var(--white);
+  color: black;
   font-size: 0.85rem;
   outline: none;
   height: 42px;

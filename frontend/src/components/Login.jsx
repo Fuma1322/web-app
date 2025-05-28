@@ -17,7 +17,7 @@ const Login = () => {
   useEffect(() => {
     const fetchAdminCount = async () => {
       try {
-        const response = await fetch("https://your-api-url/api/admin-count");
+        const response = await fetch("http://localhost:5000/api/auth/admin-count");
         const data = await response.json();
         setAdminCount(data.count);
       } catch (err) {
@@ -49,7 +49,7 @@ const Login = () => {
     setSuccessMessage("");
 
     try {
-      const response = await fetch("https://your-api-url/api/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

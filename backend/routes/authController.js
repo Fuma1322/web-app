@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { sendEmail } from "../utils/sendEmail.js";
 
 const ADMIN_CODE = "IWB-1234";
-const MAX_ADMINS = 3;
+const MAX_ADMINS = 2;
 
 export const signup = async (req, res) => {
   try {
@@ -35,7 +35,7 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       role: role || "user",
       otp,
-      otpExpires: Date.now() + 10 * 60 * 1000, // 10 min
+      otpExpires: Date.now() + 10 * 60 * 1000,
     });
 
     await sendEmail(email, "Your OTP Verification Code", `Your OTP is: ${otp}`);
@@ -46,6 +46,7 @@ export const signup = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Signup failed", error: error.message });
   }
+  console.log("Signup route hit");
 };
 
 export const verifyOTP = async (req, res) => {
@@ -57,7 +58,6 @@ export const verifyOTP = async (req, res) => {
       return res.status(404).json({ message: "User not found." });
     }
 
-    // Use instance method to check if OTP is expired
     if (user.otp !== otp || user.isOtpExpired()) {
       return res.status(400).json({ message: "Invalid or expired OTP." });
     }

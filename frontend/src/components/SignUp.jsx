@@ -38,7 +38,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        "http://localhost:5000/api/auth/signup",
         {
           username,
           email,
@@ -75,7 +75,7 @@ const SignUp = () => {
               <input
                 type="text"
                 name="username"
-                placeholder="Username"
+                placeholder="Fullnames"
                 value={formData.username}
                 onChange={handleChange}
               />

@@ -13,7 +13,7 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "All fields are required." });
     }
     if (role === "admin") {
-      const adminCount = await User.countDocuments({ role: "admin" });
+        const adminCount = await User.countDocuments({ role: "admin" });
       if (adminCount >= MAX_ADMINS)
         return res.status(403).json({ message: "Admin limit reached." });
       if (adminCode !== ADMIN_CODE)

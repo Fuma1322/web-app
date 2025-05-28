@@ -98,8 +98,6 @@
   font-weight: bold;
 }
 
-/* Input Fields */
-
 .login-page-form {
   display: flex;
   flex-direction: column;
@@ -114,33 +112,20 @@
   border: none;
   border-radius: 8px;
   background-color: var(--inputt-bg);
-  color: var(--white);
+  color: black;
   font-size: 0.95rem;
   height: 45px;
   animation: fadeInUp 0.8s ease-out;
 }
 
 .login-page-form input::placeholder {
-  color: var(--light-gray);
+  color: black;
 }
-
-/* Input Icon */
 
 .login-page-input-wrapper {
   position: relative;
+  color: black;
 }
-
-.login-page-input-icon {
-  font-size: 1.2rem;
-  color: var(--prima-color);
-  position: absolute;
-  left: 16px;
-  top: 15%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/* Button */
 
 .login-page-signup-btn {
   width: 60%;
