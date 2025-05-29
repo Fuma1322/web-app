@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+import Header from '../components/Header';
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
@@ -72,12 +73,13 @@ const QueryForm = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', background: '#1e1e2f', color: 'white', fontFamily: 'Arial' }}>
-      <h2 style={{ color: '#fbba3f' }}>Client Query Submission</h2>
+    <div style={{ padding: '6rem', background: '#ffff', color: 'black', fontFamily: 'Arial' }}>
+      <Header />
+      <h2 style={{ color: '#4facfe' }}>Client Query Submission</h2>
 
-      <form onSubmit={handleSubmit} style={{ background: '#29293d', padding: '1rem', marginBottom: '2rem', borderRadius: '8px' }}>
+      <form onSubmit={handleSubmit} style={{ background: '#ffff', padding: '1rem', marginBottom: '2rem', borderRadius: '8px' }}>
         <input
-          style={{ background: '#3a3a4d', color: 'white', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px' }}
+          style={{ background: '#e3f2fd', color: 'black', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px' }}
           type="text"
           placeholder="Name"
           value={formData.name}
@@ -85,7 +87,7 @@ const QueryForm = () => {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         />
         <input
-          style={{ background: '#3a3a4d', color: 'white', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px' }}
+          style={{ background: '#e3f2fd', color: 'black', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px' }}
           type="email"
           placeholder="Email"
           value={formData.email}
@@ -93,7 +95,7 @@ const QueryForm = () => {
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <textarea
-          style={{ background: '#3a3a4d', color: 'white', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px', width: '100%' }}
+          style={{ background: '#e3f2fd', color: 'black', margin: '5px', padding: '10px', border: 'none', borderRadius: '5px', width: '100%' }}
           placeholder="Your message"
           value={formData.message}
           required
@@ -101,28 +103,23 @@ const QueryForm = () => {
         />
         <button
           type="submit"
-          style={{ background: '#fbba3f', color: '#1e1e2f', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+          style={{ background: '#4facfe', color: '#1e1e2f', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
         >
           Submit
         </button>
         <p>{statusMessage}</p>
       </form>
 
-      <h3 style={{ color: '#fbba3f' }}>Query Stats</h3>
-      <div style={{ maxWidth: '500px', marginBottom: '2rem' }}>
-        <Bar data={chartData} />
-      </div>
-
-      <h3 style={{ color: '#fbba3f' }}>All Queries</h3>
-      <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#29293d', borderRadius: '8px', padding: '1rem' }}>
-        <table style={{ width: '100%', color: 'white' }}>
+      <h3 style={{ color: '#4facfe' }}>All Queries</h3>
+      <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#ffff', borderRadius: '8px', padding: '1rem' }}>
+        <table style={{ width: '100%', color: 'black' }}>
           <thead>
             <tr>
               <th>Name</th>
               <th>Status</th>
               <th>Message</th>
               <th>Auto-Reply</th>
-              <th>Action</th> {/* Added this missing header */}
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -131,7 +128,7 @@ const QueryForm = () => {
                 <td>{q.name}</td>
                 <td style={{ color: q.status === 'complete' ? '#83C760' : '#fbba3f' }}>{q.status}</td>
                 <td>{q.message}</td>
-                <td style={{ color: q.status === 'pending' ? '#ccc' : '#4ea217' }}>
+                <td style={{ color: q.status === 'pending' ? '#4facfe' : '#4ea217' }}>
                   {q.autoReply}
                 </td>
 
@@ -140,7 +137,7 @@ const QueryForm = () => {
                     <button
                       onClick={() => markAsComplete(q._id)}
                       style={{
-                        background: '#83C760',
+                        background: '#4facfe',
                         color: '#1e1e2f',
                         border: 'none',
                         padding: '5px 10px',

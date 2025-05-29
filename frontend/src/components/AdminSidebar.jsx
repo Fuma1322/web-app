@@ -1,6 +1,6 @@
 import React from "react";
 import { BiCog, BiHome, BiUser } from "react-icons/bi";
-import { BsActivity, BsBox } from "react-icons/bs";
+import { BsActivity, BsBox, BsFolder, BsUbuntu } from "react-icons/bs";
 import {
   FaTachometerAlt,
   FaUsers,
@@ -30,6 +30,10 @@ const AdminSidebar = () => {
         <Link to="/users" className="sidebar-link">
           <BiUser className="icon" />
           <span>Users</span>
+        </Link>
+        <Link to="/query-list" className="sidebar-link">
+          <BsFolder className="icon" />
+          <span>Queries</span>
         </Link>
         <Link to="/admin-inventory" className="sidebar-link">
           <BsBox className="icon" />
