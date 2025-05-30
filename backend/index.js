@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 import productRoutes from "./routes/productRoutes.js";
 import salesRoute from "./routes/salesRoute.js";
 import queryRoutes from "./routes/queryRoutes.js";
@@ -12,25 +14,30 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true,
 }));
-
-app.use(cors());
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("Server connected "))
-  .catch((err) => console.error(" Server connection error:", err));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use("/api/products", productRoutes);
-app.use("/api/sales", salesRoute);
-app.use("/api/client-queries", queryRoutes);
-app.use("/api/auth", authRoutes);
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB connected");
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    app.use("/api/products", productRoutes);
+    app.use("/api/sales", salesRoute);
+    app.use("/api/client-queries", queryRoutes);
+    app.use("/api/auth", authRoutes);
+
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });

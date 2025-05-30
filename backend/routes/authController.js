@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { sendEmail } from "../utils/sendEmail.js";
 
 const ADMIN_CODE = "IWB-1234";
-const MAX_ADMINS = 2;
+const ADMINS = 3;
 
 export const signup = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ export const signup = async (req, res) => {
 
     if (role === "admin") {
       const adminCount = await User.countDocuments({ role: "admin" });
-      if (adminCount >= MAX_ADMINS)
+      if (adminCount >= ADMINS)
         return res.status(403).json({ message: "Admin limit reached." });
       if (adminCode !== ADMIN_CODE)
         return res.status(401).json({ message: "Invalid admin code." });

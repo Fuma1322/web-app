@@ -1,20 +1,16 @@
 import express from "express";
 import multer from "multer";
-import Product from "../models/Product.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import Product from "../models/Product.js";
+
+const router = express.Router();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
-
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
-
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
+  destination: (req, file, cb) => cb(null, "uploads/"),
   filename: (req, file, cb) => {
     const fileExt = path.extname(file.originalname);
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -24,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/api/products", upload.single("image"), async (req, res) => {
+router.post("/", upload.single("image"), async (req, res) => {
   try {
     const { name, type, cpu, ram, storage, gpu, price, status, tags } = req.body;
     const image = req.file ? `/uploads/${req.file.filename}` : null;
@@ -46,7 +42,7 @@ app.post("/api/products", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get("/api/products", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);
@@ -55,7 +51,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-app.put("/api/products/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updated);
@@ -64,7 +60,7 @@ app.put("/api/products/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/products/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.json({ message: "Product deleted" });
@@ -73,4 +69,4 @@ app.delete("/api/products/:id", async (req, res) => {
   }
 });
 
-export default app;
+export default router;
