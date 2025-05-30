@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "http://iwb-lesotho.s3-website.eu-north-1.amazonaws.com",
   credentials: true,
 }));
 app.use(express.json());
